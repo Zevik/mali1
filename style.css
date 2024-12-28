@@ -1,6 +1,8 @@
 :root {
-    --primary-color: #2c3e50;
-    --accent-color: #e74c3c;
+    --primary-color: #5CB338;
+    --secondary-color: #ECE852;
+    --accent-color: #FFC145;
+    --danger-color: #FB4141;
     --text-color: #333;
     --bg-light: #f9f9f9;
 }
@@ -14,7 +16,7 @@ body {
 }
 
 .main-header {
-    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 2rem 1rem;
     text-align: center;
@@ -49,6 +51,11 @@ nav {
     background: rgba(255,255,255,0.1);
     border-radius: 25px;
     padding: 0.5rem 1rem;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 nav a {
@@ -67,6 +74,21 @@ nav a.active {
     font-weight: bold;
 }
 
+select {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:hover {
+    background: var(--accent-color);
+}
+
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -74,7 +96,7 @@ main {
 }
 
 section {
-    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+    background: linear-gradient(to bottom right, #ffffff, var(--bg-light));
     border-radius: 8px;
     padding: 2rem;
     margin: 2rem 0;
@@ -165,7 +187,7 @@ h2 {
 }
 
 .contact-section {
-    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     border-radius: 15px;
     padding: 3rem;
