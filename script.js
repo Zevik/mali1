@@ -92,6 +92,19 @@ function updateContent(lang) {
 
 }
 
+const languageBtns = document.querySelectorAll('.lang-btn');
+
+languageBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        languageBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        // Update content
+        updateContent(btn.dataset.lang);
+    });
+});
+
 languageSelect.addEventListener('change', () => {
     const selectedLang = languageSelect.value;
     updateContent(selectedLang);

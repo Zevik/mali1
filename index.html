@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="he">עברית</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
+
     <header class="main-header">
         <nav>
              <select id="languageSelect">
@@ -23,7 +29,7 @@
     </header>
 
     <main>
-        <section class="about-section">
+        <section class="about-section reveal">
             <h2 data-i18n="aboutHeading"><i class="fas fa-music"></i> ברוכים הבאים לעולם המוזיקה</h2>
             <p data-i18n="aboutText">
                 שמי מלי אבירם, ואני מזמינה אתכם למסע מוזיקלי מרתק. כמורה לגיטרה עם ניסיון של שנים,
@@ -31,7 +37,7 @@
             </p>
         </section>
 
-        <section class="lessons-section">
+        <section class="lessons-section reveal">
             <h2 data-i18n="lessonsHeading"><i class="fas fa-guitar"></i> על השיעורים</h2>
             <div class="lessons-grid">
                 <div class="lesson-card">
@@ -49,7 +55,7 @@
             </div>
         </section>
 
-        <section class="method-section">
+        <section class="method-section reveal">
             <h2 data-i18n="methodHeading"><i class="fas fa-graduation-cap"></i> שיטת הלימוד</h2>
             <ul class="method-list">
                 <li data-i18n="methodItem1">התאמה אישית לקצב ולסגנון של כל תלמיד</li>
@@ -59,7 +65,7 @@
             </ul>
         </section>
 
-        <section class="contact-section">
+        <section class="contact-section reveal">
             <h2 data-i18n="contactHeading"><i class="fas fa-envelope"></i> יצירת קשר</h2>
             <div class="contact-info">
                 <p data-i18n="contactPhone"><i class="fas fa-phone"></i> טלפון: 050-1234567</p>
@@ -72,6 +78,21 @@
     <footer>
         <p data-i18n="footerText">© 2024 מלי אבירם - שיעורי גיטרה</p>
     </footer>
- <script src="script.js"></script>
+    <script>
+        // Scroll Reveal Effect
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
