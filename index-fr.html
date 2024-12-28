@@ -7,7 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <!-- Language switcher (same style as in index.html) -->
+  <div class="language-switcher">
+    <button class="lang-btn" data-lang="he">עברית</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn active" data-lang="fr">Français</button>
+  </div>
+
+  <header class="main-header">
     <nav>
       <a href="index-he.html">עברית</a> |
       <a href="index-en.html">English</a> |
@@ -20,24 +27,38 @@
     <p>
       Donne des leçons de guitare privées à tous les niveaux, axées sur le plaisir et le professionnalisme.
     </p>
-    <section>
+    <section class="reveal">
       <h2>À propos</h2>
       <p>
         Bonjour! Je suis Maly Aviram, une professeure de guitare passionnée avec des années d'expérience. Ma mission est de rendre l'apprentissage de la guitare amusant et enrichissant pour tous. Que vous soyez débutant ou avancé, j'adapte mes cours à vos besoins et objectifs uniques.
       </p>
     </section>
-    <section>
+    <section class="reveal">
       <h2>Détails des cours</h2>
       <p>
         Mes cours privés sont conçus pour tous les niveaux et couvrent une large gamme de styles. Du classique au rock, je me concentre sur le développement de votre technique, de votre musicalité et de votre compréhension théorique. Rejoignez-moi pour un voyage de découverte et de maîtrise musicale!
       </p>
     </section>
-    <section>
+    <section class="reveal">
       <h2>Contact</h2>
       <p>
         Vous pouvez me joindre par téléphone: 050-1234567 ou par email: mali@example.com
       </p>
     </section>
   </main>
+
+  <script>
+    // Reveal effect
+    function reveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 150) el.classList.add('active');
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+  </script>
 </body>
 </html>
